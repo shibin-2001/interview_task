@@ -12,7 +12,11 @@ const deleteStudent = async(req,res)=>{
               id: id,
             },
           })
-          const allStudents = await prisma.student.findMany()
+          const allStudents = await prisma.student.findMany({
+            include: {
+                course: true,
+              },
+        })
           console.log(allStudents)
           res.status(201).json(allStudents);
     }catch(err){

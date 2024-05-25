@@ -38,7 +38,7 @@ model Student {
   address Address?
   course    Course @relation(fields: [courseId], references: [id])
   courseId  String @db.ObjectId
-
+  isActive  Boolean  @default(true)
 }
 
 type Address {
